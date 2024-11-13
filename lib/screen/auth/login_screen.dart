@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/screen/home_screen.dart';
+import 'package:whatsapp_clone/screen/otp_screen.dart';
 import 'package:whatsapp_clone/widget/ui_helper.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController phoneNumberController = TextEditingController();
   String selectedCountry = "Bangladesh"; // Ensure this exists in countries
 
   final List<String> countries = [
@@ -71,13 +72,11 @@ class _LoginScreenState extends State<LoginScreen> {
             UiHelper.customText(
               text: 'WhatsApp will need to verify your phone number.',
               fontSize: 14,
-              // textAlign: TextAlign.center,
             ),
             const SizedBox(height: 5),
             UiHelper.customText(
               text: 'Carrier charges may apply.',
               fontSize: 14,
-              // textAlign: TextAlign.center,
             ),
             const SizedBox(height: 15),
             UiHelper.customText(
@@ -118,40 +117,40 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 25),
 
             // Phone Number Field
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Row(
                 children: [
                   // Country code
-                  SizedBox(
+                  const SizedBox(
                     width: 80,
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: "+880",
                         contentPadding: EdgeInsets.only(left: 5),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFF00A884)),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFF00A884)),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFF00A884)),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFF00A884)),
+                        ),
+                      ),
                     ),
                   ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-              
+                  const SizedBox(width: 10),
+
                   // Phone number input
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration(
-                  // hintText: 'Type your phone number',
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFF00A884)),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFF00A884)),
-                    ),
-                  ),
+                      controller: phoneNumberController,
+                      decoration: const InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFF00A884)),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFF00A884)),
+                        ),
+                      ),
                       keyboardType: TextInputType.phone,
                     ),
                   ),
@@ -160,26 +159,45 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
 
             const SizedBox(height: 30),
-
-            // Next Button
-        
           ],
         ),
       ),
-
-        floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 5.0), // Adjust padding to match button's position
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(
+          bottom: 5.0,
+        ),
         child: UiHelper.customButton(
           context: context,
-          callback: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()),
-          ),
+          callback: () => login(phoneNumberController.text),
           buttonName: "Next",
         ),
-        
       ),
-      floatingActionButtonLocation:FloatingActionButtonLocation.centerFloat ,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
+  }
+
+  void login(String phoneNumber) {
+    if (phoneNumber.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Enter phone number'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => OtpScreen(phoneNumber: phoneNumber),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    phoneNumberController.dispose(); // Dispose the controller
+    super.dispose();
   }
 }

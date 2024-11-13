@@ -43,6 +43,29 @@ class UiHelper {
       ),
     );
   }
+
+  static customContainer(TextEditingController controller){
+    return Container(
+      height: 40,
+      width: 40,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: const Color(0XFFD9D9D9),
+        // border: Border.all(color:const Color(0XFFD9D9D9A1)),
+      ),
+      padding: EdgeInsets.only(left: 5),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextField(
+          controller: controller,
+          // onChanged: (text) {},
+          decoration: InputDecoration(
+            border: InputBorder.none,
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 
