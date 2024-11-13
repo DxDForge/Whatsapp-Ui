@@ -16,35 +16,49 @@ class HomeScreen extends StatelessWidget {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           bottom: const TabBar(tabs: [
+            
             Tab(icon: Icon(Icons.camera_alt,)),
             Tab(text: "CHATS",),
             Tab(text: "STATUS"),
             Tab(text: "CALLS"),
           ],indicatorColor: Colors.white,),
 
-          toolbarHeight: 125,
+          toolbarHeight: 100,
            elevation: 0,
           backgroundColor: const Color(0XFF008069),
        
           // centerTitle: true,
-          title: UiHelper.customText(
-              text: 'WhatsApp',
-              fontSize: 16,
-              color: Colors.white,
-              fontWeight: FontWeight.bold),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: UiHelper.customText(
+                text: 'WhatsApp',
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
           actions: [
             IconButton(
             onPressed: (){}, 
             icon:const Icon(Icons.search),
-            )
+            
+            ),
+            IconButton(
+            onPressed: (){}, 
+            icon:Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: const Icon(Icons.more_vert),
+            ),
+            
+            ),
           ],
         ),
         body: TabBarView(children: [
           const Camera(),
            Chats(),
            Status(),
-          const Calls(),
+           CallsScreen(),
         ]),
       ),
     );
