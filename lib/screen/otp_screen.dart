@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/screen/profile_screen.dart';
 import 'package:whatsapp_clone/widget/ui_helper.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -83,7 +84,9 @@ class _OtpScreenState extends State<OtpScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: UiHelper.customButton(
           context: context, 
-          callback: (){}, 
+          callback: (){
+            Navigator.push(context, MaterialPageRoute(builder:(context)=> ProfileScreen()));
+          }, 
           buttonName: 'Next', 
           ),
       ),
