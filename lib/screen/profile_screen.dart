@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:whatsapp_clone/home_screen.dart';
+import 'package:whatsapp_clone/screen/home_screen.dart';
 import 'package:whatsapp_clone/widget/ui_helper.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         callback: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()),
+            MaterialPageRoute(builder: (context) =>  HomeScreen()),
           );
         },
         buttonName: 'Next',
