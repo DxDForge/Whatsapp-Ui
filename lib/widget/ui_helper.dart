@@ -53,13 +53,13 @@ class UiHelper {
         color: const Color(0XFFD9D9D9),
         // border: Border.all(color:const Color(0XFFD9D9D9A1)),
       ),
-      padding: EdgeInsets.only(left: 5),
+      padding: const EdgeInsets.only(left: 5),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: TextField(
           controller: controller,
           // onChanged: (text) {},
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             border: InputBorder.none,
           ),
         ),

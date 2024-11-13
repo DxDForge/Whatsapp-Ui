@@ -79,7 +79,7 @@ class OnBoarding extends StatelessWidget {
           context: context,
           callback: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => LoginScreen()),
+            MaterialPageRoute(builder: (context) => const LoginScreen()),
           ),
           buttonName: "Agree and continue",
         ),

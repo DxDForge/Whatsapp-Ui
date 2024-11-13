@@ -57,7 +57,7 @@ class _OtpScreenState extends State<OtpScreen> {
               ],
             ),
 
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -75,7 +75,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
               ],
             ),
-              SizedBox(height: 50,),
+              const SizedBox(height: 50,),
             UiHelper.customText(text: 'Didn’t receive code?', fontSize: 14,color: const Color(0XFF00A884))
           ],
         ),
@@ -85,7 +85,7 @@ class _OtpScreenState extends State<OtpScreen> {
         child: UiHelper.customButton(
           context: context, 
           callback: (){
-            Navigator.push(context, MaterialPageRoute(builder:(context)=> ProfileScreen()));
+            Navigator.push(context, MaterialPageRoute(builder:(context)=> const ProfileScreen()));
           }, 
           buttonName: 'Next', 
           ),

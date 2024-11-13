@@ -8,6 +8,8 @@ class ProfileScreen extends StatefulWidget {
   static const Color primaryColor = Color(0xFF00A884);
   static const Color avatarBgColor = Color(0xFFD9D9D9);
 
+  const ProfileScreen({super.key});
+
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -91,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         callback: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) =>  HomeScreen()),
+            MaterialPageRoute(builder: (context) =>  const HomeScreen()),
           );
         },
         buttonName: 'Next',

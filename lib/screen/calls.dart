@@ -7,7 +7,7 @@ class Calls extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: const Text('calls'),
+        child: Text('calls'),
       ),
     );
   }

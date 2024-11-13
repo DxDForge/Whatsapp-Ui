@@ -6,7 +6,7 @@ import 'package:whatsapp_clone/screen/status.dart';
 import 'package:whatsapp_clone/widget/ui_helper.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
+   const HomeScreen({super.key});
 
   
   @override
@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
         body: TabBarView(children: [
           const Camera(),
            Chats(),
-          const Status(),
+           Status(),
           const Calls(),
         ]),
       ),
