@@ -8,83 +8,78 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0), // Add padding for better alignment
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Display the onboarding image at the top
-            Image.asset(
-              'assets/images/boarding.png',
-              height: MediaQuery.of(context).size.height * 0.4, // Responsive height
-              fit: BoxFit.contain,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(height: 150), // Push image down a bit from the top
+          
+          // Circular onboarding image
+          Center(
+            child: CircleAvatar(
+              radius: MediaQuery.of(context).size.width * 0.4, // Set radius to 40% of screen width
+              backgroundImage: const AssetImage('assets/images/boarding.png'),
+              backgroundColor: Colors.transparent,
             ),
-            const SizedBox(height: 50),
-
-            // Text Section
-            Center(
-              child: Column(
-                children: [
-                  UiHelper.customText(
-                    text: "Welcome to WhatsApp",
-                    color: const Color(0xFF000000),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  const SizedBox(height: 15),
-
-                  // Privacy policy and terms message
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            UiHelper.customText(text: 'Read our ', fontSize: 14),
-                            UiHelper.customText(
-                              text: 'Privacy Policy',
-                              color: const Color(0xFF0C42CC),
-                              fontSize: 14,
-                            ),
-                            UiHelper.customText(text: '. Tap “Agree and continue”', fontSize: 14),
-                          ],
-                        ),
-                        const SizedBox(height: 5),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            UiHelper.customText(text: 'to accept the ', fontSize: 14),
-                            UiHelper.customText(
-                              text: 'Terms of Service.',
-                              color: const Color(0xFF0C42CC),
-                              fontSize: 14,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-
-      // Floating action button for navigating to the Home screen
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 5.0), // Adjust padding to match button's position
-        child: UiHelper.customButton(
-          context: context,
-          callback: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const LoginScreen()),
           ),
-          buttonName: "Agree and continue",
+          
+          const SizedBox(height: 50),
+
+          // Welcome text and description
+          UiHelper.customText(
+            text: "Welcome to WhatsApp",
+            color: Colors.black,
+            fontSize: 24,
+            // fontWeight: FontWeight.bold,
+            // textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 15),
+
+          // Privacy policy and terms message
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              children: [
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: const TextSpan(
+                    style: const TextStyle(color: Colors.black, fontSize: 16),
+                    children: [
+                      TextSpan(text: 'Read our ',style: TextStyle(color: Color(0XFF5E5E5E),fontSize: 16,height: 1.2)),
+                      TextSpan(
+                        text: 'Privacy Policy',
+                        style: TextStyle(color: Color(0xFF0C42CC)),
+                      ),
+                      TextSpan(text: '. Tap “Agree and continue” to accept the ',style: TextStyle(color: Color(0XFF5E5E5E),fontSize: 16,height: 1.2)),
+                      TextSpan(
+                        text: 'Terms of Service.',
+                        style: TextStyle(color: Color(0xFF0C42CC),fontSize: 16,height: 1.2),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+
+      // Floating action button at the bottom
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 20.0),
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.9, // Full-width button with slight margins
+          child: UiHelper.customButton(
+            context: context,
+            callback: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+            ),
+            buttonName: "Agree and continue",
+            // color: const Color(0xFF25D366), // WhatsApp green color for the button
+          ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat, // Center the button at the bottom
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

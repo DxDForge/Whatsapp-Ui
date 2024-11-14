@@ -7,7 +7,7 @@ class Camera extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('camera'),
+        child: Text('camera',style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),),
       ),
       
     );

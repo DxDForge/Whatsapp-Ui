@@ -107,16 +107,16 @@ class Chats extends StatelessWidget {
             radius: 25,
             backgroundImage: NetworkImage(userData[index]['image'].toString()),
           ),
-          title: UiHelper.customText(text: userData[index]['name'].toString(), fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),
+          title: UiHelper.customText(text: userData[index]['name'].toString(), fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),
           subtitle:UiHelper.customText(text: userData[index]['lastMessage'].toString(), fontSize: 13),
           trailing: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               UiHelper.customText(text: userData[index]['time'].toString(), fontSize: 12, color: const Color(0XFF026500),fontWeight: FontWeight.w700),
               const SizedBox(height: 3),
-               CircleAvatar(radius: 8,
+               CircleAvatar(radius: 10,
               backgroundColor:const Color(0XFF026500),
-              child: UiHelper.customText(text: userData[index]['msg'].toString(), fontSize: 12, color:  Colors.white),
+              child: UiHelper.customText(text: userData[index]['msg'].toString(), fontSize: 13, color:  Colors.white,fontWeight: FontWeight.w400),
               ),
               
 

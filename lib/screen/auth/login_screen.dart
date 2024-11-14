@@ -57,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
           style: TextStyle(
             color: Color(0xFF00A884),
             fontWeight: FontWeight.bold,
+            fontSize: 24
           ),
         ),
         elevation: 0,
@@ -70,22 +71,25 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             const SizedBox(height: 40),
             UiHelper.customText(
-              text: 'WhatsApp will need to verify your phone number.',
-              fontSize: 14,
+              text: 'WhatsApp will need to verify your phone ',
+              fontSize: 16,
+              fontWeight: FontWeight.w400
             ),
             const SizedBox(height: 5),
             UiHelper.customText(
-              text: 'Carrier charges may apply.',
-              fontSize: 14,
+              text: 'number. Carrier charges may apply.',
+              fontSize: 16,
+              fontWeight: FontWeight.w400
+      
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 5),
             UiHelper.customText(
               text: 'What\'s my number?',
-              fontSize: 14,
+              fontSize: 16,
               color: const Color(0xFF00A884),
               fontWeight: FontWeight.w400,
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 60),
 
             // Country Dropdown
             Padding(

@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             Tab(text: "CALLS"),
           ],indicatorColor: Colors.white,),
 
-          toolbarHeight: 100,
+          toolbarHeight: 80,
            elevation: 0,
           backgroundColor: const Color(0XFF008069),
        

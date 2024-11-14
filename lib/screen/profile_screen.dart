@@ -25,7 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         title: UiHelper.customText(
           text: 'Profile info',
-          fontSize: 16,
+          fontSize: 24,
           color: ProfileScreen.primaryColor,
           fontWeight: FontWeight.bold,
         ),
@@ -39,11 +39,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 30),
             UiHelper.customText(
               text: 'Please provide your name and an optional',
-              fontSize: 14,
+              fontSize: 16,
             ),
             UiHelper.customText(
               text: 'profile photo',
-              fontSize: 14,
+              fontSize: 16,
             ),
             const SizedBox(height: 30),
 
@@ -68,21 +68,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: TextField(
-                controller: controller,
-                decoration: const InputDecoration(
-                  hintText: 'Type your name here',
-                  hintStyle: TextStyle(color: ProfileScreen.primaryColor),
-                  border: UnderlineInputBorder(
-                    borderSide: BorderSide(color: ProfileScreen.primaryColor),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: controller,
+                      decoration: const InputDecoration(
+                        hintText: 'Type your name here',
+                        // hintStyle: TextStyle(color: ProfileScreen.primaryColor),
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(color: ProfileScreen.primaryColor),
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: ProfileScreen.primaryColor),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: ProfileScreen.primaryColor),
+                        ),
+                      ),
+                    ),
                   ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: ProfileScreen.primaryColor),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: ProfileScreen.primaryColor),
-                  ),
-                ),
+                  SizedBox(width: 5,),
+                  Image.asset('assets/images/emoje.png',height: 40,)
+                ],
               ),
             ),
           ],

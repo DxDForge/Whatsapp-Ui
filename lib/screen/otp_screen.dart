@@ -24,7 +24,7 @@ class _OtpScreenState extends State<OtpScreen> {
       appBar: AppBar(
         title: UiHelper.customText(
             text: 'Verifying your number',
-            fontSize: 16,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
             color: const Color(0xFF00A884)),
         elevation: 0,
@@ -34,30 +34,31 @@ class _OtpScreenState extends State<OtpScreen> {
       body: Center(
         child: Column(
           children: [
+            SizedBox(height: 40,),
             UiHelper.customText(
               text: 'You’ve tried to register +880${widget.phoneNumber}',
-              fontSize: 14,
+              fontSize: 16,
             ),
             UiHelper.customText(
               text: 'recently. Wait before requesting an sms or a call.',
-              fontSize: 14,
+              fontSize: 16,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 UiHelper.customText(
                   text: ' with your code.',
-                  fontSize: 14,
+                  fontSize: 16,
                 ),
                 UiHelper.customText(
               text: ' What’s my number?',
               color: const Color(0xFF00A884),
-              fontSize: 14,
+              fontSize: 16,
             ),
               ],
             ),
 
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -75,8 +76,8 @@ class _OtpScreenState extends State<OtpScreen> {
 
               ],
             ),
-              const SizedBox(height: 50,),
-            UiHelper.customText(text: 'Didn’t receive code?', fontSize: 14,color: const Color(0XFF00A884))
+              const SizedBox(height: 40,),
+            UiHelper.customText(text: 'Didn’t receive code?', fontSize: 16,color: const Color(0XFF00A884))
           ],
         ),
       ),

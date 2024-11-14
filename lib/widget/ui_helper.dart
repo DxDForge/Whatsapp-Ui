@@ -32,22 +32,23 @@ class UiHelper {
     required double fontSize,
     Color color = const Color(0xFF5E5E5E), // Default color
     FontWeight fontWeight = FontWeight.normal,// Default font weight
-  }) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-        color: color,
-        // height: fontHeight,
-      ),
-    );
-  }
+   double fontHeight = 1.2, // Default line height
+}) {
+  return Text(
+    text,
+    style: TextStyle(
+      fontWeight: fontWeight,
+      fontSize: fontSize,
+      color: color,
+      height: fontHeight, // Apply the line height
+    ),
+  );
+}
 
   static customContainer(TextEditingController controller){
     return Container(
-      height: 40,
-      width: 40,
+      height: 50,
+      width: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: const Color(0XFFD9D9D9),
